@@ -1,0 +1,121 @@
+■Python 3.9.6
+
+■os - Miscellaneous operating system interfaces
+ファイルをお読み書きしたければopen()
+パスを通したければos.path
+全文読みたければfileinput
+一時的なファイルやディレクトリを作りたければtempfile
+ファイルやディレクトリのハンドリングはshutil
+
+◯ファイルの作成
+>>> path = "./test/user.txt"
+# wとすると上書きされる
+>>> f = open(path, "w")
+>>> f.write('')
+0
+>>> f.close
+
+◯ディレクトリを作る
+>>> path="./test/test2"
+>>> os.mkdir(path)
+
+◯ディレクトリパスを移動する
+>>>os.chdir("~")
+
+◯ファイルやディレクトリをリストで返す
+>>>os.listdir()
+
+◯ファイルおよびディレクトリが存在するかどうか調べる
+>>>os.path.exists("test.txt")
+
+◯ディレクトリまでのパスを取得
+>>> os.getcwd()
+'D:\\test_env\\OS'
+
+◯パスを示す文字列からファイル名を返す（一番うしろを返す）
+>>> main_path = 'D:\\test_env\\OS\\test1.txt'
+>>> os.path.basename(main_path)
+'test1.txt'
+
+◯パスを示す文字列から直前までのパスを取り出す
+>>> os.path.dirname(main_path)
+'D:\\test_env\\OS'
+
+◯パスの結合
+>>> os.path.join("./","test")
+'./test'
+
+◯ディレクトリの存在確認ができる
+>>>os.path.isdir("test")
+
+◯ファイルの存在確認ができる
+>>>os.path.isfile("test.txt")
+
+◯ファイル名の変更
+>>> os.rename("test.txt", "test2.txt")
+
+◯ファイルの消去
+>>> os.remove("test2.txt")
+
+###仕事で使ったコード達の流れ###
+
+◯フォルダを作る
+
+```python
+import os
+new_dir_path = 'data/temp/new-dir'
+os.mkdir(new_dir_path)
+```
+
+◯フォルダがあるかを確認しながら進む
+
+```python
+try:
+    os.makedirs(new_dir_path_recursive)
+except FileExistsError:
+    pass
+```
+
+◯ディレクトリ内にある複数のファイルをソートして読み込む
+
+```python
+#coding:utf-8
+import glob
+
+if __name__ == '__main__':
+
+  file_list = sorted(glob.glob('path/to/dir/*.txt'))
+
+  for filename in file_list:
+    with open(filename, 'r') as input:
+    ...
+```
+
+◯os.renameでファイル名を変更
+
+```python
+import os
+# 変更前ファイル
+path1 = './dir/sample_00.txt'
+# 変更後ファイル
+path2= './dir/sample_01.txt'
+# ファイル名の変更 
+os.rename(path1, path2)
+# ファイルの存在確認 
+print(os.path.exists(path2))
+```
+
+◯readメソッドでtxtファイル全体を文字列として読みこむ
+
+```python
+f = open('area.txt')
+print(f.read())
+f.close()
+```
+
+◯ディレクトリ内のファイル数を調べる
+
+```python
+DIR = './dataset'
+print(sum(os.path.isfile(os.path.join(DIR, name)) for name in os.listdir(DIR)))
+```

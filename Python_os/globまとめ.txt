@@ -1,0 +1,9 @@
+ディレクトリに存在するファイルをリスト形式で取得
+
+>>> import os
+>>> import re
+>>> file = glob.glob("*.txt")
+>>> print(file)
+['test1.txt', 'test2.txt']
+>>> file[0]
+'test1.txt'

@@ -1,10 +1,10 @@
 import json
 from requests_oauthlib import OAuth1Session
 
-CONSUMER_KEY = 'nldZAYIbSFKLJN4D19Ct3Qt7g'
-CONSUMER_SECRET = '3ez6ksqcP7YDlWa1a5iMNU1RrbNUrpHvkIZiedM5jCYUqBYvRI'
-ACCESS_TOKEN = '1327135291828789248-63t2C7pOp0QIzZVJn2KIbRM4mZxK0R'
-ACCESS_TOKEN_SECRET = 'ARNlcUwEhfw3yFZSYAnLDXW4oPII8aEcWDuzOrgJ3Rmgs'
+CONSUMER_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+CONSUMER_SECRET = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+ACCESS_TOKEN = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+ACCESS_TOKEN_SECRET = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 url = 'https://api.twitter.com/1.1/statuses/update.json'
 
